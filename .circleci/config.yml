@@ -7,7 +7,7 @@ orbs:
 jobs:
   deploy:
     docker:
-      - image: cimg/eclipse-temurin:17-jdk-jammy
+      - image: cimg/openjdk:17.0.9
     steps:
       - setup_remote_docker
       - checkout
