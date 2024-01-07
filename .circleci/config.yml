@@ -6,4 +6,6 @@ orbs:
 workflows:
   simple_workflow:
     jobs:
-      - heroku/push-docker-image
+      - heroku/push-docker-image:
+          pre-deploy:
+            - setup_remote_docker
