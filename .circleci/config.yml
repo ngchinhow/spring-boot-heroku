@@ -16,7 +16,7 @@ jobs:
           name: Heroku Container Push
           command: |
               heroku container:login
-              heroku container:push web --app chinhow-su-devops --arg jdbc_database_url=$JDBC_DATABASE_URL,jdbc_database_username=$JDBC_DATABASE_USERNAME,jdbc_database_password=$JDBC_DATABASE_PASSWORD 
+              heroku container:push web --app chinhow-su-devops 
               heroku container:release web -a chinhow-su-devops
 
 workflows:
