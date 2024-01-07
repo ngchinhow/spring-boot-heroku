@@ -5,4 +5,12 @@ COPY mvnw pom.xml ./
 RUN chmod 777 ./mvnw
 COPY src ./src
 RUN ./mvnw install -DskipTests
-CMD ["java", "-jar", "./target/spring-boot-heroku-0.0.1-SNAPSHOT.jar"]
+
+# Prepare database connection details
+ARG jdbc_database_url
+ARG jdbc_database_username
+ARG jdbc_database_password
+ENV JDBC_DATABASE_URL $jdbc_database_url
+ENV JDBC_DATABASE_USERNAME $jdbc_database_username
+ENV JDBC_DATABASE_PASSWORD $jdbc_database_password
+CMD ["./mvnw", "spring-boot:run"]
