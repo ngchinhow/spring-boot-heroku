@@ -5,4 +5,4 @@ COPY mvnw pom.xml ./
 RUN chmod 777 ./mvnw
 COPY src ./src
 RUN ./mvnw install -DskipTests
-ENTRYPOINT ["./mvnw", "spring-boot:run"]
+CMD ["./mvnw", "spring-boot:run"]
