@@ -7,5 +7,6 @@ workflows:
   simple_workflow:
     jobs:
       - heroku/push-docker-image:
+          app-name: chinhow-su-devops
           pre-deploy:
             - setup_remote_docker
