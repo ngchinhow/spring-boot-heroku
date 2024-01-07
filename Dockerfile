@@ -13,4 +13,7 @@ ARG jdbc_database_password
 ENV JDBC_DATABASE_URL $jdbc_database_url
 ENV JDBC_DATABASE_USERNAME $jdbc_database_username
 ENV JDBC_DATABASE_PASSWORD $jdbc_database_password
+RUN echo $JDBC_DATABASE_URL
+RUN echo $JDBC_DATABASE_USERNAME
+RUN echo $JDBC_DATABASE_PASSWORD
 CMD ["./mvnw", "spring-boot:run"]
