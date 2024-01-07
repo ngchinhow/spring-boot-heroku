@@ -5,4 +5,4 @@ COPY mvnw pom.xml ./
 RUN chmod 777 ./mvnw
 COPY src ./src
 RUN ./mvnw install -DskipTests
-CMD ["java", "-Dserver.port=$PORT", "-jar", "target/*.jar"]
+CMD ["./mvnw", "spring-boot:run"]
