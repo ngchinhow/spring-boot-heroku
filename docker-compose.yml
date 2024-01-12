@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  web-app:
+    container_name: spring-boot-app
+    build:
+      dockerfile: ./Dockerfile
+    environment:
+      DATABASE_URL: postgres://user:password@postgres-container:5432/default
+    depends_on:
+      - postgres-container
+      - prometheus
+    ports:
+      - "8080:8080"
+
+  postgres-container:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: default
+    ports:
+      - "8081:5432"
+
+  prometheus:
+    image: prom/prometheus:latest
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
