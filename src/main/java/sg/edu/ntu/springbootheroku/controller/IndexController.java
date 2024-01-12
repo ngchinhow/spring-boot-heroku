@@ -29,7 +29,7 @@ public class IndexController {
         var storedCount = indexVisitStoreTimer.record(() -> repository.save(indexVisitCount));
         assert storedCount != null;
         var responseMessage = "Welcome to the home page! You have visited " +
-            indexVisitCounter.count() +
+            (int) indexVisitCounter.count() +
             " times, and the latest record ID is " +
             storedCount.getId() +
             ". On average, your visits took " +
