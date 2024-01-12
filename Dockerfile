@@ -1,8 +1,11 @@
-FROM eclipse-temurin:17-jdk-jammy
+FROM maven:3.9.4-eclipse-temurin-17-alpine
+
 WORKDIR /app
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN chmod 777 ./mvnw
+
+COPY mvnw mvnw.cmd pom.xml ./
+
 COPY src ./src
-RUN ./mvnw install -DskipTests
-CMD ["./mvnw", "spring-boot:run"]
+
+RUN mvn clean package -DskipTests=true
+
+CMD ["mvn", "spring-boot:run"]
