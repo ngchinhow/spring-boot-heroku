@@ -1,4 +1,4 @@
-FROM maven:3.9.4-eclipse-temurin-17-alpine
+FROM maven:3.9.6-amazoncorretto-17
 
 WORKDIR /app
 

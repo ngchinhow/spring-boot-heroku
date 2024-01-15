@@ -12,22 +12,22 @@ import java.net.URISyntaxException;
 @Configuration
 public class DatabaseConfiguration {
 
-    @Value("${application.database_url}")
-    private String applicationDatabaseUrl;
+    // @Value("${application.database_url}")
+    // private String applicationDatabaseUrl;
 
-    @Bean
-    public DataSource dataSource() throws URISyntaxException {
-        final var dbUri = new URI(applicationDatabaseUrl);
+    // @Bean
+    // public DataSource dataSource() throws URISyntaxException {
+    //     final var dbUri = new URI(applicationDatabaseUrl);
 
-        final var userInfoSegments = dbUri.getUserInfo().split(":");
-        final var username = userInfoSegments[0];
-        final var password = userInfoSegments[1];
-        final var dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-        final var dataSourceBuilder = DataSourceBuilder.create();
-        return dataSourceBuilder
-            .url(dbUrl)
-            .username(username)
-            .password(password)
-            .build();
-    }
+    //     final var userInfoSegments = dbUri.getUserInfo().split(":");
+    //     final var username = userInfoSegments[0];
+    //     final var password = userInfoSegments[1];
+    //     final var dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+    //     final var dataSourceBuilder = DataSourceBuilder.create();
+    //     return dataSourceBuilder
+    //         .url(dbUrl)
+    //         .username(username)
+    //         .password(password)
+    //         .build();
+    // }
 }
